@@ -4,172 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coming Soon | Ant Delivery Chennai</title>
+    <link rel="icon" type="image/png" sizes="24x24" href="./assets/logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <style>
-        :root {
-            --primary-color: #D35400; /* Brick Orange */
-            --dark-bg: #1a1a1a;
-            --text-white: #ffffff;
-            --text-grey: #cccccc;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        body {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: var(--text-white);
-            text-align: center;
-            padding: 20px;
-        }
-
-        /* Logo Area */
-        .logo-container {
-            margin-bottom: 30px;
-            animation: fadeInDown 1s ease-out;
-        }
-
-        .logo-icon {
-            font-size: 4rem;
-            color: var(--primary-color);
-            margin-bottom: 10px;
-            /* Simple bounce animation to mimic carrying a heavy load */
-            animation: bounce 2s infinite;
-        }
-
-        .brand-name {
-            font-size: 2rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        /* Main Content */
-        .main-content {
-            max-width: 700px;
-            animation: fadeInUp 1s ease-out 0.5s backwards;
-        }
-
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        h1 span {
-            color: var(--primary-color);
-        }
-
-        p.subtitle {
-            font-size: 1.2rem;
-            color: var(--text-grey);
-            margin-bottom: 40px;
-        }
-
-        /* Subscription Form */
-        .notify-form {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 30px;
-        }
-
-        .notify-form input {
-            padding: 15px 25px;
-            border-radius: 50px;
-            border: none;
-            outline: none;
-            width: 300px;
-            font-size: 1rem;
-        }
-
-        .notify-btn {
-            padding: 15px 35px;
-            border-radius: 50px;
-            border: none;
-            background: var(--primary-color);
-            color: var(--text-white);
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.3s;
-            font-size: 1rem;
-        }
-
-        .notify-btn:hover {
-            background: #b54300;
-            transform: scale(1.05);
-        }
-
-        /* Vendor Callout */
-        .vendor-link {
-            margin-top: 40px;
-            font-size: 0.9rem;
-            color: var(--text-grey);
-            border: 1px solid rgba(255,255,255,0.2);
-            padding: 10px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: 0.3s;
-            background: rgba(255,255,255,0.05);
-        }
-
-        .vendor-link:hover {
-            background: rgba(255,255,255,0.1);
-            color: var(--text-white);
-            border-color: var(--primary-color);
-        }
-
-        /* Footer */
-        footer {
-            position: absolute;
-            bottom: 20px;
-            font-size: 0.8rem;
-            color: rgba(255,255,255,0.5);
-        }
-
-        /* Animations */
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-            40% {transform: translateY(-10px);}
-            60% {transform: translateY(-5px);}
-        }
-
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Mobile Responsiveness */
-        @media (max-width: 600px) {
-            h1 { font-size: 2rem; }
-            .notify-form input { width: 100%; }
-            .notify-btn { width: 100%; }
-        }
-    </style>
+    <link rel="stylesheet" href="./styles/index.css">
 </head>
 <body>
 
     <div class="logo-container">
-        <i class="fas fa-cubes logo-icon"></i>
+        <img src="./assets/logo.png" class="logo"/>
         <div class="brand-name">Ant Delivery</div>
     </div>
 
@@ -177,12 +20,11 @@
         <h1>We are <span>Building</span> Something Solid.</h1>
         <p class="subtitle">Chennai's fastest construction material delivery service is launching soon. Get Bricks, M-Sand, and Cement delivered to your site with a tap.</p>
 
-        <form class="notify-form" onsubmit="event.preventDefault(); alert('Thanks! We will notify you when we launch in Chennai.');">
-            <input type="email" placeholder="Enter your email address" required>
-            <button type="submit" class="notify-btn">Notify Me</button>
-        </form>
+<!--        <form class="notify-form" onsubmit="event.preventDefault(); alert('Thanks! We will notify you when we launch in Chennai.');">-->
+<!--            <button type="submit" href="mailto:partner@antdelivery.in" class="notify-btn">Reach Out!</button>-->
+<!--        </form>-->
 
-        <a href="mailto:partner@antdelivery.in" class="vendor-link">
+        <a href="mailto:contact@ant.delivery" class="vendor-link">
             <i class="fas fa-store-alt"></i> Own a Hardware Shop or Brick Kiln in Chennai? Partner with us.
         </a>
     </div>
