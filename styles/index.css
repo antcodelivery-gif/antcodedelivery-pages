@@ -1,163 +1,164 @@
-:root {
-    --primary-color: #D35400; /* Brick Orange */
-    --dark-bg: #1a1a1a;
-    --text-white: #ffffff;
-    --text-grey: #cccccc;
-}
+@import "root-styling.css";
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
-body {
-    height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
-    background-size: cover;
-    background-position: center;
+.landing-page {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: var(--text-white);
     text-align: center;
-    padding: 20px;
+    padding: 0 24px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(rgb(247 247 247 / 60%), rgb(4 0 0 /60%)), url("../assets/background.jpg");
 }
 
-/* Logo Area */
-.logo-container {
-    margin-bottom: 30px;
-    animation: fadeInDown 1s ease-out;
+.z-index-position {
+    z-index: 1000;
 }
 
-.logo-icon {
+.landing-page::before {
+    opacity: 0.5;
+}
+
+.bg-image {
+
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 800px;
+    animation: fadeIn Up 0.8s ease-out;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    border-radius: 999px;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+    backdrop-filter: blur(4px);
+}
+
+.status-dot {
+    width: 16px;
+    height: 16px;
+    background-color: var(--accent-primary);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--accent-glow);
+    animation: pulse 2s infinite;
+    display: inline-flex;
+}
+
+.title {
     font-size: 4rem;
-    color: var(--primary-color);
-    margin-bottom: 10px;
-    /* Simple bounce animation to mimic carrying a heavy load */
-    animation: bounce 2s infinite;
-}
-
-.logo {
-    width: 100px;
-    height: 100px;
-    background: rgba(255,255,255, 0.3);
-    border-radius: 25px;
-}
-
-.brand-name {
-    font-size: 2rem;
+    line-height: 1.1;
     font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
 }
 
-/* Main Content */
-.main-content {
-    max-width: 700px;
-    animation: fadeInUp 1s ease-out 0.5s backwards;
+.gradient-text {
+    background: linear-gradient(135deg, #ffffff 0%, var(--accent-primary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
-h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    line-height: 1.2;
-}
-
-h1 span {
-    color: var(--primary-color);
-}
-
-p.subtitle {
-    font-size: 1.2rem;
-    color: var(--text-grey);
+.subtitle {
+    font-size: 1.25rem;
+    color: black;
     margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    backdrop-filter: blur(10px);
 }
 
-/* Subscription Form */
-.notify-form {
+.cta-group {
     display: flex;
-    gap: 10px;
+    gap: 16px;
     justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 30px;
 }
 
-.notify-form input {
-    padding: 15px 25px;
-    border-radius: 50px;
-    border: none;
-    outline: none;
-    width: 300px;
+.btn {
+    padding: 12px 28px;
+    border-radius: 8px;
     font-size: 1rem;
-}
-
-.notify-btn {
-    padding: 15px 35px;
-    border-radius: 50px;
-    border: none;
-    background: var(--primary-color);
-    color: var(--text-white);
     font-weight: 600;
     cursor: pointer;
-    transition: 0.3s;
-    font-size: 1rem;
+    transition: all 0.2s ease;
+    font-family: var(--font-main);
 }
 
-.notify-btn:hover {
-    background: #b54300;
-    transform: scale(1.05);
+.btn-primary {
+    background: var(--accent-primary);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 20px -4px var(--accent-glow);
 }
 
-/* Vendor Callout */
-.vendor-link {
-    margin-top: 40px;
-    font-size: 0.9rem;
-    color: var(--text-grey);
-    border: 1px solid rgba(255,255,255,0.2);
-    padding: 10px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: 0.3s;
-    background: rgba(255,255,255,0.05);
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px -5px var(--accent-glow);
 }
 
-.vendor-link:hover {
-    background: rgba(255,255,255,0.1);
-    color: var(--text-white);
-    border-color: var(--primary-color);
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+    border: 1px solid var(--glass-border);
 }
 
-/* Footer */
-footer {
+.btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px -5px var(--accent-glow);
+}
+
+.glow-effect {
     position: absolute;
-    bottom: 20px;
-    font-size: 0.8rem;
-    color: rgba(255,255,255,0.5);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+    pointer-events: none;
+    z-index: 1;
 }
 
-/* Animations */
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-    40% {transform: translateY(-10px);}
-    60% {transform: translateY(-5px);}
+.page-footer {
+    justify-content: center;
 }
 
-@keyframes fadeInDown {
-    from { opacity: 0; transform: translateY(-30px); }
-    to { opacity: 1; transform: translateY(0); }
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2.5rem;
+    }
 
-/* Mobile Responsiveness */
-@media (max-width: 600px) {
-    h1 { font-size: 2rem; }
-    .notify-form input { width: 100%; }
-    .notify-btn { width: 100%; }
+    .subtitle {
+        font-size: 1.1rem;
+    }
 }
