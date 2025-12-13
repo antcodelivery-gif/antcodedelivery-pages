@@ -1,0 +1,51 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+/*@import 'bootstrap/dist/css/bootstrap.min.css';*/
+
+:root {
+    /* Premium Dark Palette */
+    --bg-primary: #0a0a0b; /* Very dark, almost black */
+    --bg-secondary: #141416; /* Slightly lighter for cards/nav */
+
+    --text-primary: #ffffff;
+    --text-secondary: #94a3b8;
+
+    --accent-primary: #3b82f6; /* Bright blue */
+    --accent-glow: rgba(59, 130, 246, 0.5);
+
+    --border-color: rgba(255, 255, 255, 0.1);
+    --glass-bg: rgba(20, 20, 22, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.08);
+
+    --font-main: 'Outfit', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
