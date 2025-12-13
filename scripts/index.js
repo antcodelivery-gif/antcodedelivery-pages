@@ -2,6 +2,8 @@ let contactForm;
 let notifyModal;
 let modelBackdropElement;
 
+const SHEETS_URL = "https://script.google.com/macros/s/AKfycbyY_TQzG4ny4TskydNFdFfvJq2UmgknY2GWCuSloZ_803IM5IS5XLZL8zzC3wQqO1hb/exec"
+
 // 2. Initialize everything once the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -34,7 +36,7 @@ function sendEmail() {
     window.location.href = mailtoLink;
 }
 
-function openNotifyMeForm() {
+function becomeVendor() {
     // alert("Notify Me");
     openModal();
 }
@@ -42,6 +44,7 @@ function openNotifyMeForm() {
 // Function to open the modal
 function openModal() {
     notifyModal.show();
+    contactForm.reset();
     modelBackdropElement.style.display = 'visible';
 }
 
@@ -54,7 +57,7 @@ function closeModal() {
 // Add an event listener to handle the form submission
 // contactForm.addEventListener('submit', function(event) );
 
-function submitContactForm() {
+async function submitContactForm() {
     // 1. Prevent the default form submission (page reload)
     event.preventDefault();
 
@@ -70,36 +73,31 @@ function submitContactForm() {
     const data = {
         name: formData.get('name'),
         phoneNumber: formData.get('phoneNumber'),
-        companyName: formData.get('companyName')
+        companyName: formData.get('companyName'),
+        companyAddress: formData.get('companyAddress'),
     };
 
     console.log("Form Data Submitted:", data);
 
-    // --- Replace this block with your actual server-side submission (e.g., using fetch) ---
-    // Example:
-    /*
-    fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-    })
-    .then(response => response.json())
-    .then(result => {
-        console.log('Success:', result);
-        // Show success message or close modal
-        closeModal();
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        // Show error message
-    });
-    */
-    // ----------------------------------------------------------------------------------
+    try {
+        // We use 'no-cors' mode because Google Apps Script redirects (302)
+        // to a different domain, which often triggers CORS errors
+        // even if the data is successfully written.
+        await fetch(SHEETS_URL, {
+            method: "POST",
+            mode: "no-cors",
+            body: formData,
+        });
+
+        console.log("Data sent successfully!");
+        alert(`Thank you, ${data.name}! Details submitted.`);
+    } catch (error) {
+        console.error("Error submitting form:", error);
+        alert(`There was an error trying to submit the details, Please try again later.`);
+    }
 
     // For this example, we just log and then close the modal
-    alert(`Thank you, ${data.name}! Details submitted.`);
+
     closeModal();
     contactForm.reset(); // Clear the form fields
 
